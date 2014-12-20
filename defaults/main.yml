@@ -1,12 +1,12 @@
 ---
 
 # Teamcity docker containers settings
-teamcity_server_image: clayman74/teamcity-server:9.0
+teamcity_server_image: clayman/teamcity_server:9.0
 teamcity_server_container: teamcity-server
 
-teamcity_agent_image: clayman74/teamcity-agent
+teamcity_agent_image: clayman/teamcity_agent
 teamcity_agent_container: teamcity-agent
-teamcity_agent_server_address: 127.0.01
+teamcity_agent_server_address: 127.0.0.1
 
 # Teamcity server database credentials
 teamcity_external_db: false

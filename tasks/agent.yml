@@ -4,8 +4,7 @@
   docker:
     image: "{{teamcity_agent_image}}"
     name: "{{teamcity_agent_container}}"
-    env:
-      - "TEAMCITY_SERVER=http://{{teamcity_agent_server_address}}:8111"
+    env: "TEAMCITY_SERVER=http://{{teamcity_agent_server_address}}:8111"
 
 - name: Stop Teamcity agent docker container
   docker: image={{teamcity_agent_image}} name={{teamcity_agent_container}} state=stopped

@@ -20,12 +20,12 @@ The role has default value that should work without modification unless you want
 
 Docker container settings for server:
 
-    teamcity_server_image: clayman74/teamcity-server:9.0
+    teamcity_server_image: clayman/teamcity_server:9.0
     teamcity_server_container: teamcity-server
 
 Docker container settings for agent:
 
-    teamcity_agent_image: clayman74/teamcity-agent
+    teamcity_agent_image: clayman/teamcity_agent
     teamcity_agent_container: teamcity-agent
     teamcity_agent_server_address: 127.0.0.1
 
