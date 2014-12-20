@@ -87,9 +87,6 @@ with
 ```yaml
 ---
 teamcity_external_db: false
-teamcity_db_user: teamcity
-teamcity_db_password: secret
-teamcity_db_name: teamcity
 ```
 
 ### Run the playbook
