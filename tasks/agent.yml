@@ -1,0 +1,17 @@
+---
+
+- name: Run Teamcity agent docker container
+  docker:
+    image: "{{teamcity_agent_image}}"
+    name: "{{teamcity_agent_container}}"
+    env:
+      - "TEAMCITY_SERVER=http://{{teamcity_agent_server_address}}:8111"
+
+- name: Stop Teamcity agent docker container
+  docker: image={{teamcity_agent_image}} name={{teamcity_agent_container}} state=stopped
+
+- name: Create teamcity agent supervisor config
+  template: src=agent/supervisor.conf dest=/etc/supervisor/conf.d/{{teamcity_agent_container}}.conf
+
+- name: Enable {{teamcity_agent_container}} supervisor program
+  supervisorctl: name={{teamcity_agent_container}} state=restarted

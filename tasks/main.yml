@@ -1,0 +1,9 @@
+---
+
+- include: server.yml
+  tags:
+    - teamcity-server
+
+- include: agent.yml
+  tags:
+    - teamcity-agent

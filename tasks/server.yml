@@ -1,0 +1,17 @@
+---
+
+- name: Run Teamcity server docker container
+  docker:
+    image: "{{teamcity_server_image}}"
+    name: "{{teamcity_server_container}}"
+    ports:
+      -  "8111:8111"
+
+- name: Stop Teamcity server docker container
+  docker: image={{teamcity_server_image}} name={{teamcity_server_container}} state=stopped
+
+- name: Create teamcity server supervisor config
+  template: src=server/supervisor.conf dest=/etc/supervisor/conf.d/{{teamcity_server_container}}.conf
+
+- name: Enable {{teamcity_server_container}} supervisor program
+  supervisorctl: name={{teamcity_server_container}} state=restarted
